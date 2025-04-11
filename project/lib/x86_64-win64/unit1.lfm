@@ -1,0 +1,83 @@
+object Form1: TForm1
+  Left = 328
+  Height = 519
+  Top = 219
+  Width = 837
+  Caption = 'Form1'
+  ClientHeight = 519
+  ClientWidth = 837
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 152
+    Height = 288
+    Top = 64
+    Width = 512
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 30
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Образование'
+        FieldName = 'obrazovanie'
+      end    
+      item
+        Title.Caption = 'Профессия'
+        FieldName = 'professiya'
+      end    
+      item
+        Title.Caption = 'Место и должность последней работы'
+        FieldName = 'mesto_i_dolzhnost_posledney_raboti'
+      end    
+      item
+        Title.Caption = 'Причина увольнения'
+        FieldName = 'prichina_uvolneniya'
+      end    
+      item
+        Title.Caption = 'Семейное положение'
+        FieldName = 'semeynoe_polozhenie'
+      end    
+      item
+        Title.Caption = 'Адресс'
+        FieldName = 'adress'
+      end    
+      item
+        Title.Caption = 'Координаты'
+        FieldName = 'koordinati'
+      end>
+    DataSource = DataSource1
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'svetlov'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 336
+    Top = 376
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'baza_bezrabotnih'
+    Left = 392
+    Top = 376
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 448
+    Top = 376
+  end
+end

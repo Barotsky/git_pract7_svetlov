@@ -1,0 +1,50 @@
+object Form4: TForm4
+  Left = 256
+  Height = 535
+  Top = 145
+  Width = 983
+  Caption = 'Form4'
+  ClientHeight = 535
+  ClientWidth = 983
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 176
+    Height = 292
+    Top = 56
+    Width = 528
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'svetlov'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 368
+    Top = 378
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'trudoustroystvo'
+    Left = 424
+    Top = 378
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 480
+    Top = 378
+  end
+end

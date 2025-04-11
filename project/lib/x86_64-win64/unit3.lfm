@@ -1,0 +1,87 @@
+object Form3: TForm3
+  Left = 531
+  Height = 519
+  Top = 333
+  Width = 854
+  Caption = 'Form3'
+  ClientHeight = 0
+  ClientWidth = 0
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 160
+    Height = 240
+    Top = 72
+    Width = 480
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 30
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Фирма'
+        FieldName = 'firma'
+      end    
+      item
+        Title.Caption = 'Должность'
+        FieldName = 'dolzhnost'
+      end    
+      item
+        Title.Caption = 'Условия труда и оплаты'
+        FieldName = 'usloviya_truda_i_oplati'
+      end    
+      item
+        Title.Caption = 'Требования к специалисту'
+        FieldName = 'trebovaniya_k_specialistu'
+      end    
+      item
+        Title.Caption = 'Поиск и регистрация вариантов'
+        FieldName = 'poisk_i_registraciya_variantov'
+      end    
+      item
+        Title.Caption = 'Формирование объявлений для печати'
+        FieldName = 'formirovanie_obyavleniy_dlya_pechati'
+      end    
+      item
+        Title.Caption = 'Удаление в архив после трудоустройства'
+        FieldName = 'udalenie_v_arhiv_posle_trudoustroystva'
+      end    
+      item
+        Title.Caption = 'Полное удаление при отказе от услуг'
+        FieldName = 'polnoe_udalenie_pri_otkaze_ot_uslug'
+      end>
+    DataSource = DataSource1
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'svetlov'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 328
+    Top = 344
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'baza_vakansiy'
+    Left = 383
+    Top = 344
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 440
+    Top = 344
+  end
+end

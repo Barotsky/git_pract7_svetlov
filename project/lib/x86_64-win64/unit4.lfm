@@ -1,0 +1,85 @@
+object Form4: TForm4
+  Left = 439
+  Height = 535
+  Top = 234
+  Width = 983
+  Caption = 'Form4'
+  ClientHeight = 535
+  ClientWidth = 983
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 176
+    Height = 292
+    Top = 56
+    Width = 528
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 30
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Резюме'
+        Width = 160
+        FieldName = 'rezyume'
+      end    
+      item
+        Title.Caption = 'Сопроводительное письмо'
+        Width = 250
+        FieldName = 'soprovoditelnoe_pismo'
+      end    
+      item
+        Title.Caption = 'Номер телефона'
+        FieldName = 'nomer_telefona'
+      end    
+      item
+        Title.Caption = 'Паспортные данные'
+        FieldName = 'passportnie_dannie'
+      end    
+      item
+        Title.Caption = 'Заполнение анкеты'
+        FieldName = 'zapolnenie_anketi'
+      end    
+      item
+        Title.Caption = 'База безработных ID'
+        FieldName = 'baza_bezrabotnih_id'
+      end    
+      item
+        Title.Caption = 'База вакансий ID'
+        FieldName = 'baza_vakansiy_id'
+      end>
+    DataSource = DataSource1
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'svetlov'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 368
+    Top = 378
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'trudoustroystvo'
+    Left = 424
+    Top = 378
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 480
+    Top = 378
+  end
+end
